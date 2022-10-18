@@ -17,3 +17,9 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
+
+// Add Multer function
+
+app.listen(5500, () => {
+  console.log("Backend server is running!");
+});
