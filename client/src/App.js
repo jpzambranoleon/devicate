@@ -10,6 +10,8 @@ import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
 import { useContext } from "react";
 import { InfoContext } from "./utility/InfoProvider";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home/Home";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:5500/api";
@@ -20,7 +22,12 @@ function App() {
     <div className="App">
       {authorized ? (
         <Router>
-          <Container></Container>
+          <Navbar />
+          <Container>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Container>
         </Router>
       ) : (
         <Router>
