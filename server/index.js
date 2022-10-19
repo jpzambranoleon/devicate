@@ -20,6 +20,8 @@ app.use(morgan("common"));
 
 // Add Multer function
 
+app.use("/api/auth", require("./routes/auth.routes"));
+
 app.listen(5500, () => {
   console.log("Backend server is running!");
 });
