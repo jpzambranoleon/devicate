@@ -43,7 +43,7 @@ export default function Register() {
     const data = Object.fromEntries(new FormData(event.currentTarget));
 
     axios
-      .post("/auth/signup", data)
+      .post("/auth/register", data)
       .then((res) => {
         setStatus({
           open: true,
@@ -54,7 +54,7 @@ export default function Register() {
         localStorage.setItem("token", res.data.accessToken);
         axios.defaults.headers.common["Authorization"] = res.data.accessToken;
 
-        navigate("/setup");
+        navigate("/");
       })
       .catch((err) => {
         let message = err.response ? err.response.data.message : err.message;
@@ -84,34 +84,13 @@ export default function Register() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="userName"
-                  label="User Name"
-                  name="userName"
+                  id="username"
+                  label="Username"
+                  name="username"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -146,7 +125,7 @@ export default function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2" to="/sign-in">
+                <Link href="#" variant="body2" to="/login">
                   Already have an account? Sign in
                 </Link>
               </Grid>
