@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { InfoContext } from "./utility/InfoProvider";
+import { InfoContext } from "../../utility/InfoProvider";
 import { LockOutlined } from "@mui/icons-material";
 import {
   Avatar,
@@ -165,7 +165,7 @@ export default function Login() {
                   </Grid>
                   <Button
                     component={Link}
-                    to="/sign-up"
+                    to="/register"
                     fullWidth
                     variant="contained"
                     color="success"

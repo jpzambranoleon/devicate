@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import { InfoContext } from "./utility/InfoProvider";
+import { InfoContext } from "../../utility/InfoProvider";
 import { useNavigate, Link } from "react-router-dom";
 
 function Copyright(props) {
