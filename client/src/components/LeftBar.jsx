@@ -25,7 +25,7 @@ import {
   Settings,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-// import CreatePostButton from "./CreatePostButton";
+import CreatePostButton from "./CreatePostButton";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -174,7 +174,7 @@ const LeftBar = ({ mode, setMode }) => {
             </ListItem>
           </List>
         </Paper>
-        {/*  <CreatePostButton /> */}
+        <CreatePostButton />
       </Box>
     </Box>
   );
