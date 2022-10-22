@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const MongooseConnection = require("./utility/mongoose.connection");
 const cors = require("cors");
 const morgan = require("morgan");
+const multer = require("multer");
 const path = require("path");
 
 // Create application with express
@@ -19,6 +20,22 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 
 // Add Multer function
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage: fileStorageEngine });
+app.post("/api/upload", upload.single("image"), (req, res) => {
+  console.log(req.file);
+  res.send("Single file upload success");
+});
 
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/users", require("./routes/users.routes"));
