@@ -17,7 +17,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useRef } from "react";
+import { useContext } from "react";
 import { useState } from "react";
+import { InfoContext } from "../utility/InfoProvider";
 
 const StyledModal = styled(Modal)({
   display: "flex",
@@ -33,9 +36,20 @@ const UserBox = styled(Box)({
 });
 
 const CreatePostButton = () => {
+  const { setStatus, authorizedUser } = useContext(InfoContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const desc = useRef();
+  const [file, setFile] = useState(null);
+
+  const submitHandler = async (e) => {
+    e.prventDefault();
+    const newPost = {
+      userId: authorizedUser._id,
+      desc: desc.current.value,
+    };
+  };
 
   return (
     <div>
@@ -69,7 +83,8 @@ const CreatePostButton = () => {
             </Typography>
           </UserBox>
           <TextField
-            id="standard-multiline-static"
+            id="desc"
+            href={desc}
             multiline
             fullWidth
             rows={3}
