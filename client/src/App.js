@@ -10,6 +10,7 @@ import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
 import { useContext } from "react";
 import { InfoContext } from "./utility/InfoProvider";
+import Setup from "./pages/SetUp/Setup";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import RightBar from "./components/RightBar";
@@ -25,22 +26,9 @@ function App() {
       <Box bgcolor={"background.default"} color="text.primary">
         {authorized ? (
           <Router>
-            <Navbar />
-            <Container>
-              <Grid sx={{ pt: { md: 3, sm: 2 } }} container spacing={3}>
-                <Grid item sm={3}>
-                  <LeftBar />
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                  </Routes>
-                </Grid>
-                <Grid>
-                  <RightBar />
-                </Grid>
-              </Grid>
-            </Container>
+            <Routes>
+              <Route path="setup" element={<Setup />} />
+            </Routes>
           </Router>
         ) : (
           <Router>
