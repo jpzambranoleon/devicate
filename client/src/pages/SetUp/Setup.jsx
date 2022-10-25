@@ -11,6 +11,7 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
+import axios from "axios";
 import { useState } from "react";
 import { useContext } from "react";
 import { InfoContext } from "../../utility/InfoProvider";
@@ -34,7 +35,24 @@ export default function Setup() {
       data.append("name", fileName);
       data.append("image", file);
       formData.profilePic = fileName;
+
+      axios.post("/upload", data);
     }
+    axios
+      .put(`/users/update/${authorizedUser._id}`, {
+        userId: authorizedUser,
+        data: formData,
+      })
+      .then((res) => {
+        setStatus({
+          open: true,
+          message: res.data.message,
+          severity: "success",
+        }).catch((err) => {
+          let message = err.response ? err.response.data.message : err.message;
+          setStatus({ open: true, message: message, severity: "error" });
+        });
+      });
   };
 
   return (
