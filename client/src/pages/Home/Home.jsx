@@ -1,10 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import Navbar from "../../components/Navbar";
 
 export default function Home() {
   return (
     <main>
-      <Box>
-        <Typography>Home Page</Typography>
+      <Navbar />
+      <Box sx={{ bgcolor: "background.paper" }}>
+        <Container>
+          <Typography>Home Page</Typography>
+        </Container>
       </Box>
     </main>
   );
