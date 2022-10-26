@@ -1,4 +1,9 @@
-import { PhotoCamera } from "@mui/icons-material";
+import {
+  AddPhotoAlternate,
+  GitHub,
+  PersonAdd,
+  PhotoCamera,
+} from "@mui/icons-material";
 import {
   Box,
   Container,
@@ -10,13 +15,17 @@ import {
   IconButton,
   CardMedia,
   Grid,
+  Stack,
 } from "@mui/material";
+import { blue } from "@mui/material/colors";
 import axios from "axios";
 import { useState } from "react";
 import { useContext } from "react";
 import { InfoContext } from "../../utility/InfoProvider";
 import SetupBar from "./components/SetupBar";
-import SetupUser from "./components/SetupUser";
+import SetupUser from "./SetupProfile";
+import { Link } from "react-router-dom";
+import Test from "./components/Test";
 
 export default function Setup() {
   const { setStatus, authorizedUser } = useContext(InfoContext);
@@ -58,7 +67,6 @@ export default function Setup() {
 
   return (
     <main>
-      <SetupBar />
       <Box sx={{ bgcolor: "background.paper", pt: 8, pb: 6 }}>
         <Container>
           <Grid container spacing={3}>
@@ -76,8 +84,71 @@ export default function Setup() {
                 This will make it easier for other users to find you, and to get
                 to know you better. Of course, this step is completely optional!
               </Typography>
-              <Button variant="contained">Skip</Button>
-              <SetupUser />
+              <Grid container spacing={2} align="center">
+                <Grid item xs={12} sm={4}>
+                  <Typography gutterBottom variant="h6">
+                    Upload
+                  </Typography>
+                  <Avatar
+                    sx={{ width: 60, height: 60, mb: 2, bgcolor: blue[700] }}
+                  >
+                    <AddPhotoAlternate fontSize="large" />
+                  </Avatar>
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    color="text.secondary"
+                  >
+                    Be personable
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Typography gutterBottom variant="h6">
+                    Connect
+                  </Typography>
+                  <Avatar
+                    sx={{ width: 60, height: 60, mb: 2, bgcolor: blue[700] }}
+                  >
+                    <PersonAdd fontSize="large" />
+                  </Avatar>
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    color="text.secondary"
+                  >
+                    Find and connect with others easier
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Typography gutterBottom variant="h6">
+                    Share
+                  </Typography>
+                  <Avatar
+                    sx={{ width: 60, height: 60, mb: 2, bgcolor: blue[700] }}
+                  >
+                    <GitHub fontSize="large" />
+                  </Avatar>
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    color="text.secondary"
+                  >
+                    Share your projects easily
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  variant="contained"
+                  component={Link}
+                  to="/setup/profile"
+                >
+                  Continue
+                </Button>
+                <Button variant="outlined" component={Link} to="/">
+                  Skip
+                </Button>
+              </Stack>
             </Grid>
             <Grid item sm={5} xs={12}>
               <Box sx={{ border: 1, borderRadius: 5, padding: 2 }}>
