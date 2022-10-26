@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { InfoContext } from "../../utility/InfoProvider";
 import SetupBar from "./components/SetupBar";
+import SetupUser from "./components/SetupUser";
 
 export default function Setup() {
   const { setStatus, authorizedUser } = useContext(InfoContext);
@@ -76,6 +77,7 @@ export default function Setup() {
                 to know you better. Of course, this step is completely optional!
               </Typography>
               <Button variant="contained">Skip</Button>
+              <SetupUser />
             </Grid>
             <Grid item sm={5} xs={12}>
               <Box sx={{ border: 1, borderRadius: 5, padding: 2 }}>
