@@ -28,7 +28,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER_IMAGES_PERSON;
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER_IMAGES;
 
   const handleDrawerOpen = () => {
     setOpenDrawer(true);
@@ -73,15 +73,14 @@ const Navbar = () => {
       <AppBar position="static">
         <Toolbar
           sx={{
-            width: { xl: "76%", lg: "90%" },
+            width: { xl: "75%", lg: "90%" },
             margin: { xl: "0 auto", lg: "0 auto" },
             justifyContent: "space-between",
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <SportsSoccer fontSize="large" color="inherit" sx={{ mr: 1 }} />
             <Typography color="inherit" variant="h5" noWrap>
-              Team Finder
+              Devicate
             </Typography>
           </Box>
           <Box>
