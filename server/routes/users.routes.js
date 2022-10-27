@@ -2,7 +2,7 @@ const router = require("express").Router();
 const UserController = require("../controllers/user.controller");
 const { validateToken } = require("../middlewares/validate.jwt.middleware");
 
-router.put("/set", UserController.setPublicInfo);
+router.put("/setup/:id", UserController.setPublicInfo);
 // UPDATE USER
 router.put("/update/:id", UserController.updateUser);
 // UPDATE USERNAME
