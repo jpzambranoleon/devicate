@@ -28,8 +28,8 @@ function App() {
         {authorized ? (
           <Router>
             <Routes>
-              <Route path="/setup" element={<Setup />} />
-              <Route path="/setup/profile" element={<SetupProfile />} />
+              <Route path="/:id/setup" element={<Setup />} />
+              <Route path="/:id/setup/profile" element={<SetupProfile />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Router>
