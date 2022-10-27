@@ -3,6 +3,7 @@ const User = require("../models/user.model");
 
 // Create a Post
 exports.submitPost = async (req, res) => {
+  console.log(req.body);
   try {
     let commonPostInfo = {
       userId: req.body.userId,
