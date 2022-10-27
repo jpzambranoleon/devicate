@@ -141,7 +141,7 @@ export default function Setup() {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/setup/profile"
+                  to={`/${authorizedUser._id}/setup/profile`}
                 >
                   Continue
                 </Button>
