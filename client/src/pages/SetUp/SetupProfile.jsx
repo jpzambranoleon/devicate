@@ -1,4 +1,4 @@
-import { Delete, PhotoCamera } from "@mui/icons-material";
+import { AddPhotoAlternate, Delete, PhotoCamera } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -6,6 +6,7 @@ import {
   Container,
   Divider,
   Grid,
+  IconButton,
   Modal,
   Paper,
   Stack,
@@ -16,9 +17,13 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { InfoContext } from "../../utility/InfoProvider";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SetupProfile = () => {
   const { setStatus, authorizedUser } = useContext(InfoContext);
+
+  console.log(authorizedUser._id);
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -41,8 +46,8 @@ const SetupProfile = () => {
       axios.post("/upload", data);
     }
     axios
-      .put(`/users/update/${authorizedUser._id}`, {
-        userId: authorizedUser,
+      .put(`/users/setup/${authorizedUser._id}`, {
+        userId: authorizedUser._id,
         data: formData,
       })
       .then((res) => {
@@ -50,10 +55,12 @@ const SetupProfile = () => {
           open: true,
           message: res.data.message,
           severity: "success",
-        }).catch((err) => {
-          let message = err.response ? err.response.data.message : err.message;
-          setStatus({ open: true, message: message, severity: "error" });
         });
+        navigate("/");
+      })
+      .catch((err) => {
+        let message = err.response ? err.response.data.message : err.message;
+        setStatus({ open: true, message: message, severity: "error" });
       });
   };
 
@@ -82,19 +89,22 @@ const SetupProfile = () => {
                 gutterBottom
                 variant="h4"
                 align="center"
-                color="primary"
+                color="text.primary"
               >
                 Upload Photo
               </Typography>
-              <Avatar
-                src={!file ? "/broken-image.jpg" : URL.createObjectURL(file)}
-                sx={{
-                  width: 200,
-                  height: 200,
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              />
+              <Box>
+                <Avatar
+                  src={!file ? "/broken-image.jpg" : URL.createObjectURL(file)}
+                  sx={{
+                    width: 200,
+                    height: 200,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    mb: 2,
+                  }}
+                />
+              </Box>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Stack direction="row" spacing={2}>
                   <Button
@@ -196,7 +206,9 @@ const SetupProfile = () => {
                 fullWidth
                 size="small"
               />
-              <Button variant="contained">Submit</Button>
+              <Button variant="contained" onClick={handleSubmit} sx={{ mt: 2 }}>
+                Submit
+              </Button>
             </Grid>
           </Grid>
         </Container>
