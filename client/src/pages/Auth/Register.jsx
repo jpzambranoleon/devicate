@@ -50,11 +50,12 @@ export default function Register() {
           message: res.data.message,
           severity: "success",
         });
-        setAuthorized(true);
         localStorage.setItem("token", res.data.accessToken);
+        localStorage.setItem("user", res.data.newUser);
         axios.defaults.headers.common["Authorization"] = res.data.accessToken;
 
-        navigate("/");
+        setAuthorized(true);
+        navigate(`/${res.data.newUser}/setup`);
       })
       .catch((err) => {
         let message = err.response ? err.response.data.message : err.message;
