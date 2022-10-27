@@ -13,6 +13,7 @@ import {
   FormGroup,
   FormControlLabel,
   styled,
+  Skeleton,
 } from "@mui/material";
 import {
   Apps,
@@ -26,6 +27,9 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import CreatePostButton from "./CreatePostButton";
+import { useContext, useEffect, useState } from "react";
+import { InfoContext } from "../utility/InfoProvider";
+import axios from "axios";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -75,6 +79,24 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const LeftBar = ({ mode, setMode }) => {
+  const { authorized } = useContext(InfoContext);
+  const userId = localStorage.getItem("user");
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER_IMAGES;
+
+  useEffect(() => {
+    if (authorized) {
+      setLoading(true);
+      const fetchUser = async () => {
+        const res = await axios.get(`/users?userId=${userId}`);
+        setUser(res.data);
+        setLoading(false);
+      };
+      fetchUser();
+    }
+  }, [authorized, userId]);
+
   return (
     <Box
       component="div"
@@ -85,9 +107,38 @@ const LeftBar = ({ mode, setMode }) => {
         <Paper sx={{ mb: 2 }}>
           <CardActionArea>
             <CardHeader
-              avatar={<Avatar src="/assets/person/diana.jpg" />}
-              title="Diana Ayi"
-              subheader="@dayi"
+              avatar={
+                loading ? (
+                  <Skeleton
+                    animation="wave"
+                    variant="circular"
+                    width={40}
+                    height={40}
+                  />
+                ) : (
+                  <Avatar
+                    src={
+                      !user.profilePic
+                        ? "/broken-image.jpg"
+                        : PF + user.profilePic
+                    }
+                  />
+                )
+              }
+              title={
+                loading ? (
+                  <Skeleton animation="wave" height={15} />
+                ) : (
+                  user.firstName + " " + user.lastName
+                )
+              }
+              subheader={
+                loading ? (
+                  <Skeleton animation="wave" height={15} width="40%" />
+                ) : (
+                  "@" + user.username
+                )
+              }
             />
           </CardActionArea>
         </Paper>
