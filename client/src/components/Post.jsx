@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
@@ -19,20 +18,26 @@ import {
   ShareOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { Users } from "../dummyData";
+import { useEffect } from "react";
+import axios from "axios";
+import convertTime from "../utility/convertTime";
 
 const Post = ({ post }) => {
-  console.log(post);
-
-  Post.propTypes = {
-    loading: PropTypes.bool,
-  };
-
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER_IMAGES;
 
-  setTimeout(() => {
-    setLoading(false);
-  }, [3000]);
+  useEffect(() => {
+    setLoading(true);
+    const fetchUser = async () => {
+      const res = await axios.get(`/users?userId=${post.userId}`);
+      setUser(res.data);
+      setLoading(false);
+    };
+    fetchUser();
+  }, [post.userId]);
+
+  console.log(post);
 
   return (
     <Card sx={{ mb: 2 }}>
@@ -48,7 +53,9 @@ const Post = ({ post }) => {
           ) : (
             <Avatar
               alt=""
-              src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+              src={
+                !user.profilePic ? "/broken-image.jpg" : PF + user.profilePic
+              }
             />
           )
         }
@@ -68,20 +75,20 @@ const Post = ({ post }) => {
               style={{ marginBottom: 6 }}
             />
           ) : (
-            Users.filter((u) => u.id === post?.userId)[0].username
+            user.username
           )
         }
         subheader={
           loading ? (
             <Skeleton animation="wave" height={10} width="40%" />
           ) : (
-            post.date
+            convertTime(post.createdAt)
           )
         }
       />
       {loading ? null : (
         <CardContent>
-          <Typography>{post?.desc}</Typography>
+          <Typography>{post.desc}</Typography>
         </CardContent>
       )}
 
