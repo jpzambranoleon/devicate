@@ -40,6 +40,7 @@ exports.register = async (req, res) => {
       success: true,
       message: "Registration Success",
       accessToken: token,
+      newUser: newUser._id,
     });
   } catch (err) {
     if (err.name === "ValidationError") {
@@ -234,7 +235,6 @@ exports.resetPassword = async (req, res) => {
 
 exports.setPublicInfo = async (req, res) => {
   try {
-    console.log(req.body);
     const userId = req.body.userId;
     if (!userId) throw new Error("User is not authorized");
 
