@@ -153,7 +153,7 @@ const LeftBar = ({ mode, setMode }) => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton component={Link} to="/profile">
+              <ListItemButton component={Link} to={`/${user.username}`}>
                 <ListItemIcon>
                   <Person />
                 </ListItemIcon>
