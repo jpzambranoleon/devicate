@@ -16,6 +16,7 @@ import Home from "./pages/Home/Home";
 import RightBar from "./components/RightBar";
 import LeftBar from "./components/LeftBar";
 import SetupProfile from "./pages/SetUp/SetupProfile";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:5500/api";
@@ -31,6 +32,7 @@ function App() {
               <Route path="/:id/setup" element={<Setup />} />
               <Route path="/:id/setup/profile" element={<SetupProfile />} />
               <Route path="/" element={<Home />} />
+              <Route path="/:username" element={<Profile />} />
             </Routes>
           </Router>
         ) : (
