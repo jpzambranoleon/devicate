@@ -22,6 +22,7 @@ function App() {
   axios.defaults.baseURL = "http://localhost:5500/api";
 
   const { authorized } = useContext(InfoContext);
+  // do more stuff
 
   return (
     <div className="App">
