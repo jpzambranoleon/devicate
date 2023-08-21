@@ -3,7 +3,7 @@ import { format } from "timeago.js";
 const Post = ({ post }) => {
   return (
     <div className="post">
-      <img src={post.img} />
+      {post?.img && <img src={post.img} />}
       <div className="post-container">
         <div className="post-container__content">
           <div className="user">

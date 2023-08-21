@@ -67,35 +67,41 @@
 
 
 .footer {
-    .footer-container {
-        grid-template-columns: 27fr 21fr 21fr 21fr;
-
-        .social-links {
+    @include themify($themes) {
+        background-color: themed("bgSoft");
+        .footer-container {
+            height: 4rem;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            color: themed("textColor");
 
-            li {
-                list-style: none;
-                background-color: grey;
-                padding: 8px;
-                border-radius: 50%;
-                text-decoration: none;
-                cursor: pointer;
-                transition: all 0.2s;
+            .footer-left {
+                display: flex;
+                align-items: center;
 
-                &:is(:hover, :focus) {
-                    background-color: blue;
-
-                    a {
-                        color: white;
-                    }
+                .logo {
+                    font-size: 18px;
+                    font-weight: 600;
                 }
             }
-    
-            a {
-                color: black;
+
+            .footer-center {
+                display: flex;
+                align-items: center;
+                gap: 5rem;
+                font-size: 12px;
+
+                span {
+                    cursor: pointer;
+                }
+            }
+
+            .footer-right {
+                display: flex;
+                align-items: center;
+                font-weight: 200;
+                font-size: 18px;
             }
         }
     }

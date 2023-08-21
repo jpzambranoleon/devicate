@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import Profile from "./Pages/Profile";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -21,6 +20,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<Profile />} path="/profile" />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

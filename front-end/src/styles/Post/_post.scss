@@ -10,6 +10,7 @@
         color: themed("textColor");
 
         img {
+            display: flex;
             border-top-left-radius: .35rem;
             border-top-right-radius: .35rem;
         }
@@ -18,7 +19,7 @@
             &__content {
                 display: flex;
                 flex-direction: column;
-                padding: .55rem;
+                padding: .65rem .75rem;
 
                 .user {
                     display: flex;
@@ -41,7 +42,7 @@
             &__footer {
                 display: flex;
                 justify-content: space-between;
-                padding: .55rem;
+                padding: .65rem .75rem;
 
                 i {
                     font-size: 18px;
