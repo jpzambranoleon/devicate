@@ -16,7 +16,9 @@
     "@mui/material": "^5.14.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.15.0",
+    "remark-gfm": "^3.0.1",
     "sass": "^1.66.1",
     "timeago.js": "^4.0.2"
   },
