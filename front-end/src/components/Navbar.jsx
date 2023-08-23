@@ -95,6 +95,9 @@ const Navbar = ({ setDarkMode, darkMode }) => {
             inputProps={{ "aria-label": "controlled" }}
           />
           <i className="fa-solid fa-user" onClick={handleClick} />
+          <button className="menu-button">
+            <i className="fa-solid fa-bars" />
+          </button>
         </div>
       </nav>
     </header>

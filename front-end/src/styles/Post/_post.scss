@@ -9,7 +9,7 @@
         background-color: themed("cardColor");
         color: themed("textColor");
 
-        img {
+        .post-img {
             display: flex;
             border-top-left-radius: .35rem;
             border-top-right-radius: .35rem;
@@ -39,6 +39,34 @@
                     }
                 }
             }
+
+            .tags {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: .65rem .75rem;
+                color: themed("socialIcons");
+
+                .chip {
+                    display: flex;
+                    align-items: center;
+                    background-color: themed("chip");
+                    gap: 10px;
+                    padding: .20rem .50rem;
+                    border-radius: .25rem;
+                    cursor: pointer;
+
+                    .text {
+                        font-size: 12px;
+                    }
+
+                    .icon {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+
             &__footer {
                 display: flex;
                 justify-content: space-between;

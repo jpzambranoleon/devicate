@@ -10,7 +10,8 @@ $themes: (
     border: lightgray,
     cardColor: $light-mode-primary,
     socialsColor: $light-mode-secondary,
-    socialsIcon: rgb(118, 119, 120)
+    socialsIcon: rgb(118, 119, 120),
+    chip: $light-mode-secondary,
   ),
   dark: (
     textColor: $dark-mode-text-primary,
@@ -19,7 +20,8 @@ $themes: (
     textColorSecondary: $dark-mode-text-secondary,
     cardColor: $dark-mode-secondary,
     socialsColor: $dark-mode-secondary,
-    socialsIcon: $light-mode-primary
+    socialsIcon: $light-mode-primary,
+    chip: rgb(119, 121, 125),
   ),
 );
 
