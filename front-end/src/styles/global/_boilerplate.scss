@@ -1,0 +1,94 @@
+@use "./colors" as *;
+@use "./typography" as *;
+@use "./properties" as *;
+@use "./themes" as *;
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $body-font;
+    font-size: $normal-font-size;
+    //background-color: $body-color;
+    //color: $text-color;
+    transition: .3s; /* For animation dark mode */
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button {
+    font-family: $body-font;
+    outline: none;
+    border: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1024px;
+    margin-left: .5rem;
+    margin-right: .5rem;
+
+    @media (min-width: 1040px) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.grid {
+    display: grid;
+}
+
+.section {
+    padding: 4.5rem 0 2rem;
+
+    @media (max-width: 1023px) {
+        padding: 7.5rem 0 1rem;
+    }
+}
+
+.section-title {
+    font-size: $h2-font-size;
+    margin-bottom: 1rem;
+
+    @media (min-width: 1023px) {
+        font-size: 2.5rem;
+    }
+
+    span {
+        //color: $second-color;
+    }
+}
+
+.section-subtitle {
+    display: block;
+    font-size: $small-font-size;
+    //color: $second-color;
+
+    @media (min-width: 1023px) {
+        font-size: $normal-font-size;
+    }
+}
+
+.main {
+    overflow: hidden;
+}
