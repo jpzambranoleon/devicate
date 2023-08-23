@@ -1,6 +1,7 @@
 import { Switch, styled } from "@mui/material";
 import { useState } from "react";
 import React from "../assets/react.svg";
+import { useNavigate } from "react-router-dom";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -54,10 +55,16 @@ const Navbar = ({ setDarkMode, darkMode }) => {
 
   const [checked, setChecked] = useState(darkMode);
 
+  const navigate = useNavigate();
+
   const handleThemeChange = (e) => {
     const isChecked = e.target.checked;
     setChecked(isChecked);
     setDarkMode(isChecked);
+  };
+
+  const handleClick = () => {
+    navigate("/profile");
   };
 
   return (
@@ -87,7 +94,7 @@ const Navbar = ({ setDarkMode, darkMode }) => {
             onChange={handleThemeChange}
             inputProps={{ "aria-label": "controlled" }}
           />
-          <i className="fa-solid fa-user" />
+          <i className="fa-solid fa-user" onClick={handleClick} />
         </div>
       </nav>
     </header>
