@@ -1,0 +1,14 @@
+@use "../global/" as *;
+
+.button {
+    -webkit-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    -moz-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    background-color: rgb(165, 94, 234);
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
+    padding: .15rem .25rem .25rem .25rem;
+    border-radius: .35rem;
+    cursor: pointer;
+}
