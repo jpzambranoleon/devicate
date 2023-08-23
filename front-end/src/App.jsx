@@ -7,6 +7,7 @@ import "./styles/styles.scss";
 import Home from "./Pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
+import Profile from "./Pages/Profile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,7 +17,10 @@ function App() {
     <Router>
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar setDarkMode={setDarkMode} darkMode={darkMode} />
-        <Home />
+        <Routes>
+          <Route element={<Home />} path="/" />
+          <Route element={<Profile />} path="/profile" />
+        </Routes>
       </div>
     </Router>
   );
