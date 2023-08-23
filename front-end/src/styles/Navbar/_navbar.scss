@@ -19,8 +19,12 @@
                 gap: 1rem;
 
                 &__logo {
-                    font-size: 18px;
-                    display: flex;
+                    a {
+                        color: themed("textColor");
+                        font-size: 18px;
+                        font-weight: $font-semi-bold;
+                        display: flex;
+                    }
                 }
 
                 &__search {

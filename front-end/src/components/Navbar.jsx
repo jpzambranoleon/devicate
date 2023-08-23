@@ -1,7 +1,7 @@
 import { Switch, styled } from "@mui/material";
 import { useState } from "react";
 import React from "../assets/react.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -72,7 +72,7 @@ const Navbar = ({ setDarkMode, darkMode }) => {
       <nav className="nav container">
         <div className="nav-left">
           <div className="nav-left__logo">
-            <h4>Devicate</h4>
+            <Link to="/">Devicate</Link>
           </div>
           <div className="nav-left__search">
             <div className="nav-left__search__bar">

@@ -1,6 +1,7 @@
 import Feed from "../components/Feed";
 import AppSocials from "../components/AppSocials";
 import { Avatar, AvatarGroup } from "@mui/material";
+import Button from "../components/Button";
 
 export default function Home() {
   return (
@@ -8,7 +9,15 @@ export default function Home() {
       <div className="home-container container grid">
         <div className="left">
           <Feed />
-          <button>Load more</button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "1rem 0 1rem 0",
+            }}
+          >
+            <Button text="Load more" />
+          </div>
         </div>
         <div
           className="right"
