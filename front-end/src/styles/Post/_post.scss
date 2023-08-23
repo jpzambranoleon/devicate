@@ -1,0 +1,52 @@
+@use "../global/" as *;
+
+.post {
+    @include themify($themes) {
+        -webkit-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+        -moz-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+        box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+        border-radius: .35rem;
+        background-color: themed("cardColor");
+        color: themed("textColor");
+
+        img {
+            border-top-left-radius: .35rem;
+            border-top-right-radius: .35rem;
+        }
+
+        .post-container {
+            &__content {
+                display: flex;
+                flex-direction: column;
+                padding: .55rem;
+
+                .user {
+                    display: flex;
+                    gap: 1rem;
+
+                    img {
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .date {
+                        font-size: 16px;
+                        color: themed("textColorSecondary");
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            &__footer {
+                display: flex;
+                justify-content: space-between;
+                padding: .55rem;
+
+                i {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
