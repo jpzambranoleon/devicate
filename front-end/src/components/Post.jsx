@@ -46,15 +46,16 @@ const Post = ({ post }) => {
           </span>
           <p style={{ whiteSpace: "pre-line" }}>{post.desc}</p>
         </div>
-        <div className="tags">
-          {post?.tags &&
-            post.tags?.map((t) => (
+        {post?.tags && (
+          <div className="tags">
+            {post.tags?.map((t) => (
               <div className="chip">
                 <span className="text">{t}</span>
                 <IconImg name={t} />
               </div>
             ))}
-        </div>
+          </div>
+        )}
         <div className="post-container__footer">
           <i className="fa-regular fa-heart" />
           <i class="fa-regular fa-bookmark"></i>

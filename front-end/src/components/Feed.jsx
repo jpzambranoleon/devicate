@@ -40,6 +40,14 @@ const posts = [
     desc: "We are a research team from the University of Denver, Colorado. We are researching the speed in which an ANN model processes data. If you would like to collaborate with use, feel free to contact us and join our research venture. By engaging with our models, you will be helping us record data that we need to explore the processing speed of ANN models. We hope to construct new models for faster data processing.",
     tags: ["Python", "Tensorflow"],
   },
+  {
+    id: 4,
+    date: "2019-12-21 13:35:09",
+    profilePic: "",
+    img: "",
+    title: "Hello from everyone at Devicate",
+    desc: "We are so glad that you chose to be apart of this community of developers. We hope to grow our community and contribute to independent projects while also helping you develop your skills.",
+  },
 ];
 
 const Feed = () => {
