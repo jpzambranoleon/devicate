@@ -1,0 +1,18 @@
+@use "../global/" as *;
+
+.home {
+    @include themify($themes) {
+        background-color: themed("bgSoft");
+        
+        .home-container {
+            grid-template-columns: 2fr;
+            gap: 3rem;
+    
+            @media (min-width: 1040px) {
+                grid-template-columns: 1.5fr 0.9fr;
+                justify-content: space-between;
+                column-gap: 2.5rem;
+            }
+        }
+    }
+}

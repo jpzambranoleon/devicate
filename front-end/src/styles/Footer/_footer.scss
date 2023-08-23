@@ -1,0 +1,102 @@
+@use "../global/" as *;
+
+.company {
+    @include themify($themes) {
+        color: themed("textColor");
+        .company-container {
+            .company-info {
+                li {
+                    a {
+                        text-decoration: none;
+                        color: themed("cardColor");
+                        transition: all 0.2s;
+        
+                        &:hover {
+                            color: rgb(165, 94, 234);;
+                        }
+                    }
+        
+                    &:nth-child(1) {
+                        font-size: 1.5rem;
+                        margin-bottom: 1rem;
+        
+                        span {
+                            font-weight: 700;
+                        }
+                    }
+        
+                    &:nth-child(2) {
+                        font-size: 1rem;
+                        color: themed("textColorSecondary");
+                        line-height: 1.7;
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+            .social-links {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+
+                li {
+                    list-style: none;
+                    background-color: themed("socialsColor");
+                    padding: 8px;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:is(:hover, :focus) {
+                        background-color: rgb(165, 94, 234);
+
+                        a {
+                            color: themed("cardColor");
+                        }
+                    }
+                }
+
+                a {
+                    color: themed("socialsIcon");
+                }
+            }
+        }
+    }
+}
+
+
+.footer {
+    .footer-container {
+        grid-template-columns: 27fr 21fr 21fr 21fr;
+
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+
+            li {
+                list-style: none;
+                background-color: grey;
+                padding: 8px;
+                border-radius: 50%;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.2s;
+
+                &:is(:hover, :focus) {
+                    background-color: blue;
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+    
+            a {
+                color: black;
+            }
+        }
+    }
+}

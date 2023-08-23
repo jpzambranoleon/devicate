@@ -1,0 +1,60 @@
+@use "../global/" as *;
+
+.header {
+    @include themify($themes) {
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px 0px;
+        position: sticky;
+        background-color: themed("cardColor");
+        color: themed("textColor");
+
+        .nav {
+            height: $header-height;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .nav-left {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                &__logo {
+                    font-size: 18px;
+                    display: flex;
+                }
+
+                &__search {
+                    &__bar {
+                        background-color: $light-mode-secondary;
+                        padding: .60rem;
+                        display: flex;
+                        align-items: center;
+                        border-radius: .35rem;
+                        //margin-bottom: 2rem;
+
+                        i {
+                            color: $light-mode-text-secondary;
+                            font-size: 16px;
+                        }
+
+                        .search-input {
+                            width: 90%;
+                            background-color: $light-mode-secondary;
+                            margin: 0 .5rem;
+
+                            &::placeholder {
+                                color: $light-mode-text-secondary;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .nav-right {
+                i {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

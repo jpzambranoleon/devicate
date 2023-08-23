@@ -1,0 +1,160 @@
+@use "../global/" as *;
+
+.card {
+    -webkit-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    -moz-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    //border: 3px solid;
+    border-radius: .35rem;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .34rem .30rem .34rem .34rem;
+        //border-bottom: 1px solid;
+        @media (min-width: 767px) {
+            padding: .85rem;
+        }
+
+        &__left {
+            display: flex;
+            gap: .45rem;
+
+            img {
+                height: 1.2rem;
+                width: 1.2rem;
+                border-radius: 50%;
+                object-fit: cover;
+
+                @media (min-width: 767px) {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+
+                .name {
+                    font-size: .65rem;
+                    font-weight: $font-semi-bold;
+
+                    @media (min-width: 767px) {
+                        font-size: .75rem;
+                    }
+                }
+
+                .date {
+                    font-size: .45rem;
+                    font-weight: $font-medium;
+
+                    @media (min-width: 767px) {
+                        font-size: .50rem;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .card-content {
+        padding: 0.34rem;
+        font-size: $smaller-font-size;
+
+        @media (min-width: 767px) {
+            padding: .85rem;
+
+            font-size: 0.80rem;
+        }
+    }
+
+    .card-footer {
+        padding: .34rem;
+        display: flex;
+        justify-content: space-between;
+
+        @media (min-width: 767px) {
+            padding: .85rem;
+        }
+    }
+}
+
+.app-card {
+    @include themify($themes) {
+    -webkit-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    -moz-box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    box-shadow: rgba(32, 54, 86, 0.15) 0px 8px 20px;
+    //border: 3px solid;
+    border-radius: .35rem;
+    padding: 32px 28px;
+    background-color: themed("cardColor");
+    color: themed("textColor");
+    
+    &__container {
+        background-size: cover;
+        background-image: url('/src/assets/images/world.png');
+        display: flex;
+        flex-direction: column;
+        -webkit-box-align: center;
+        align-items: center;
+
+        .top {
+            margin-bottom: 16px;
+            span {
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                font-size: 16px;
+                font-weight: $font-semi-bold;
+                //color: rgb(35, 35, 35);
+            }
+        }
+
+        .text {
+          display: block;
+          font-size: 12px;
+          //color: rgb(35, 35, 35);
+          font-weight: 300;
+          text-align: center;
+          margin-bottom: 16px;
+        }
+
+        .avatar-group {
+            & .MuiAvatar-root {
+                width: 32px; 
+                height: 32px; 
+                font-size: 12px;
+                border-color: themed("cardColor");
+            }
+        }
+
+        .list {
+            //margin: 0px;
+            //padding: 0px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+
+            li {
+                display: list-item;
+                cursor: pointer;
+                
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+
+                a {
+                    //display: flex;
+                    //align-items: center;
+
+                    i {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+}

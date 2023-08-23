@@ -1,0 +1,47 @@
+@use "./colors" as *;
+
+$themes: (
+  light: (
+    textColor: $light-mode-text-primary,
+    bg: $light-mode-primary,
+    logo: darkblue,
+    bgSoft: $light-mode-primary,
+    textColorSecondary: $light-mode-text-secondary,
+    border: lightgray,
+    cardColor: $light-mode-primary,
+    socialsColor: $light-mode-secondary,
+    socialsIcon: rgba(57, 58, 59, 0.7)
+  ),
+  dark: (
+    textColor: $dark-mode-text-primary,
+    bg: #222,
+    bgSoft: $dark-mode-primary,
+    textColorSecondary: $dark-mode-text-secondary,
+    cardColor: $dark-mode-secondary,
+    socialsColor: $dark-mode-secondary,
+    socialsIcon: $light-mode-primary
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
