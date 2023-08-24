@@ -1,7 +1,7 @@
 import Rdr2 from "../assets/images/rdr2.jpg";
 import Diana from "../assets/images/diana.jpg";
 import SamsungSam from "../assets/images/samsung-sam.jpg";
-import AnnImg from "../assets/images/ann.jpeg";
+import AnnImg from "../assets/images/neural-network.jpeg";
 import Post from "./Post";
 
 const posts = [
